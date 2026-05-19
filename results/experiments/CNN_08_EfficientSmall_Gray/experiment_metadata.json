@@ -1,0 +1,38 @@
+{
+  "model_name": "CNN_08_EfficientSmall_Gray",
+  "architecture_notes": "Efficient smaller architecture trained on grayscale-standardized images. Compared with CNN_06, it reduces later filter sizes from 128/256 to 96/128 and uses a smaller classifier Dense(256)->Dense(128).",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 16,
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42
+  },
+  "architecture_info": {
+    "Conv2D": 7,
+    "Dense": 3,
+    "MaxPooling2D": 4,
+    "Dropout": 2,
+    "BatchNormalization": 0,
+    "Flatten": 0,
+    "GlobalAveragePooling2D": 1,
+    "hidden_fc_layers": 2,
+    "total_params": 381930
+  }
+}

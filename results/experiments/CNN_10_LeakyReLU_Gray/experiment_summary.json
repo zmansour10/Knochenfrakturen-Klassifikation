@@ -1,0 +1,19 @@
+{
+  "model_name": "CNN_10_LeakyReLU_Gray",
+  "training_time_seconds": 109.440762758255,
+  "epochs_ran": 50,
+  "Conv2D": 7,
+  "Dense": 3,
+  "MaxPooling2D": 4,
+  "Dropout": 2,
+  "BatchNormalization": 0,
+  "Flatten": 0,
+  "GlobalAveragePooling2D": 1,
+  "hidden_fc_layers": 2,
+  "total_params": 780714,
+  "test_loss": 2.274007558822632,
+  "test_accuracy_keras": 0.1785714328289032,
+  "test_accuracy_sklearn": 0.17857142857142858,
+  "macro_f1": 0.0878191911181602,
+  "weighted_f1": 0.0909414297043163
+}

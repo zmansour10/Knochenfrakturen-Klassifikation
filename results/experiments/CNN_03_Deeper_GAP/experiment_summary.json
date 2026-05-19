@@ -1,0 +1,19 @@
+{
+  "model_name": "CNN_03_Deeper_GAP",
+  "training_time_seconds": 89.97024297714233,
+  "epochs_ran": 45,
+  "Conv2D": 7,
+  "Dense": 3,
+  "MaxPooling2D": 4,
+  "Dropout": 1,
+  "BatchNormalization": 0,
+  "Flatten": 0,
+  "GlobalAveragePooling2D": 1,
+  "hidden_fc_layers": 2,
+  "total_params": 780714,
+  "test_loss": 2.2447574138641357,
+  "test_accuracy_keras": 0.16428571939468384,
+  "test_accuracy_sklearn": 0.16428571428571428,
+  "macro_f1": 0.10072107848514766,
+  "weighted_f1": 0.11357806114364422
+}

@@ -1,0 +1,19 @@
+{
+  "model_name": "CNN_04_Deeper_GAP_BatchNorm",
+  "training_time_seconds": 47.559261322021484,
+  "epochs_ran": 10,
+  "Conv2D": 7,
+  "Dense": 3,
+  "MaxPooling2D": 4,
+  "Dropout": 1,
+  "BatchNormalization": 7,
+  "Flatten": 0,
+  "GlobalAveragePooling2D": 1,
+  "hidden_fc_layers": 2,
+  "total_params": 783530,
+  "test_loss": 2.3194644451141357,
+  "test_accuracy_keras": 0.11428571492433548,
+  "test_accuracy_sklearn": 0.11428571428571428,
+  "macro_f1": 0.020512820512820513,
+  "weighted_f1": 0.023443223443223443
+}

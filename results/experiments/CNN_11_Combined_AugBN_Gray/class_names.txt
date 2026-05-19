@@ -1,0 +1,10 @@
+AvulsionFracture
+ComminutedFracture
+FractureDislocation
+GreenstickFracture
+HairlineFracture
+ImpactedFracture
+LongitudinalFracture
+ObliqueFracture
+PathologicalFracture
+SpiralFracture

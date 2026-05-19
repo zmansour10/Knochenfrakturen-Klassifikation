@@ -1,0 +1,2 @@
+total_files_found,num_classes,num_splits,num_readable,num_corrupted,num_duplicates,num_size_outliers,total_flagged,total_clean_images,mean_width,mean_height,min_width,max_width,min_height,max_height,is_balanced,smallest_class_total,largest_class_total
+1129,10,2,1129,0,3,13,16,1126,430.4,560.5,58,640,77,640,True,80,155

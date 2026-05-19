@@ -1,0 +1,38 @@
+{
+  "model_name": "CNN_05_Deeper_GAP_Augmentation",
+  "architecture_notes": "Based on CNN_03_Deeper_GAP, but adds data augmentation layers after the input: RandomRotation(0.05), RandomZoom(0.10), and RandomContrast(0.10).",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42
+  },
+  "architecture_info": {
+    "Conv2D": 7,
+    "Dense": 3,
+    "MaxPooling2D": 4,
+    "Dropout": 1,
+    "BatchNormalization": 0,
+    "Flatten": 0,
+    "GlobalAveragePooling2D": 1,
+    "hidden_fc_layers": 2,
+    "total_params": 780714
+  }
+}

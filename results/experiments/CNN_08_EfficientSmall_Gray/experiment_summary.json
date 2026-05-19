@@ -1,0 +1,19 @@
+{
+  "model_name": "CNN_08_EfficientSmall_Gray",
+  "training_time_seconds": 118.7295880317688,
+  "epochs_ran": 50,
+  "Conv2D": 7,
+  "Dense": 3,
+  "MaxPooling2D": 4,
+  "Dropout": 2,
+  "BatchNormalization": 0,
+  "Flatten": 0,
+  "GlobalAveragePooling2D": 1,
+  "hidden_fc_layers": 2,
+  "total_params": 381930,
+  "test_loss": 2.2829511165618896,
+  "test_accuracy_keras": 0.1785714328289032,
+  "test_accuracy_sklearn": 0.17857142857142858,
+  "macro_f1": 0.1091555670503039,
+  "weighted_f1": 0.11779109937004674
+}

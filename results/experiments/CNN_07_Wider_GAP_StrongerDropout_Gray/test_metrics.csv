@@ -1,0 +1,2 @@
+test_loss,test_accuracy_keras,test_accuracy_sklearn,macro_f1,weighted_f1
+2.282960891723633,0.20000000298023224,0.2,0.11817713817713818,0.12937521937521937

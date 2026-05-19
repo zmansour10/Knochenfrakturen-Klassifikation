@@ -1,0 +1,12 @@
+class,train,val,test,total
+AvulsionFracture,92,16,14,122
+ComminutedFracture,113,20,13,146
+FractureDislocation,115,21,19,155
+GreenstickFracture,86,15,16,117
+HairlineFracture,80,15,10,105
+ImpactedFracture,64,11,9,84
+LongitudinalFracture,58,10,12,80
+ObliqueFracture,58,10,16,84
+PathologicalFracture,98,18,18,134
+SpiralFracture,63,11,12,86
+TOTAL,827,147,139,1113

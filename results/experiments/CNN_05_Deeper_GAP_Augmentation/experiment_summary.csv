@@ -1,0 +1,2 @@
+model_name,training_time_seconds,epochs_ran,Conv2D,Dense,MaxPooling2D,Dropout,BatchNormalization,Flatten,GlobalAveragePooling2D,hidden_fc_layers,total_params,test_loss,test_accuracy_keras,test_accuracy_sklearn,macro_f1,weighted_f1
+CNN_05_Deeper_GAP_Augmentation,118.50857901573181,50,7,3,4,1,0,0,1,2,780714,2.232982873916626,0.16428571939468384,0.16428571428571428,0.09607864357864357,0.1126129845877745

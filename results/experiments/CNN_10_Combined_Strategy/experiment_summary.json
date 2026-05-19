@@ -1,0 +1,19 @@
+{
+  "model_name": "CNN_10_Combined_Strategy",
+  "training_time_seconds": 125.97751092910767,
+  "epochs_ran": 25,
+  "Conv2D": 7,
+  "Dense": 3,
+  "MaxPooling2D": 4,
+  "Dropout": 2,
+  "BatchNormalization": 7,
+  "Flatten": 0,
+  "GlobalAveragePooling2D": 1,
+  "hidden_fc_layers": 2,
+  "total_params": 783530,
+  "test_loss": 2.2973244190216064,
+  "test_accuracy_keras": 0.13571429252624512,
+  "test_accuracy_sklearn": 0.1357142857142857,
+  "macro_f1": 0.02389937106918239,
+  "weighted_f1": 0.032434860736747534
+}

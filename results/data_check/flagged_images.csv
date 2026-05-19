@@ -1,0 +1,17 @@
+filepath,class,split,reason,width,height,file_size_kb
+dataset/AvulsionFracture/Train/35765-galleyfig1a_jpeg.rf62790773a110b4171d25a.jpg,AvulsionFracture,Train,duplicate,320,640,20.43
+dataset/ComminutedFracture/Test/leg-displacement-two-projections-white-background-vertical-image-x-248620996_jpg.rf.15fe0e9e9b93d8870cbc808e994bf03e.jpg,ComminutedFracture,Test,size_outlier,288,110,28.74
+dataset/ComminutedFracture/Train/images77_jpg.rf.8babbfa8b1d9e808ce11d3e9374c03de.jpg,ComminutedFracture,Train,size_outlier,640,110,29.43
+dataset/FractureDislocation/Train/ot1020_otgr_f1_og_jpg.r458090596504941eefb7e64eb43f41a.jpg,FractureDislocation,Train,duplicate,186,569,22.74
+dataset/GreenstickFracture/Train/A-Initial-fracture-radiograph-showing-a-greenstick-fracture-B-Follow-up-radiograph_png.rf.395a32493a7b09117eb778be10771416.jpg,GreenstickFracture,Train,size_outlier,224,122,23.76
+dataset/GreenstickFracture/Train/A214966_1_En_4_Fig4_HTML_jpg.rf.4a1be561b6de9bf170aef3d852c4ae97.jpg,GreenstickFracture,Train,size_outlier,640,120,32.24
+dataset/GreenstickFracture/Train/AJGP-11-2020-Clinical-Selvakumaran-Buckled-Bent-Broken-Fig-1_jpg.rf.f5fb593f9b3258cd1d5e4ff81cd5ae2a.jpg,GreenstickFracture,Train,size_outlier,538,121,31.46
+dataset/GreenstickFracture/Train/Comparison-imaginactug9d8d0f5e1ae7b77ee6efceaf5a1386.jpg,GreenstickFracture,Train,duplicate,136,318,7.35
+dataset/GreenstickFracture/Train/fracture-radius-ulna-3-year-old_jpg.rf.9a791256db55d5bfeee9f593700aae14.jpg,GreenstickFracture,Train,size_outlier,509,103,29.13
+dataset/HairlineFracture/Train/bones_what_to_7.rf.f7f16.jpg,HairlineFracture,Train,size_outlier,77,128,2.97
+dataset/HairlineFracture/Train/bones_what_to_7329_g.rf.f0056d7f16.jpg,HairlineFracture,Train,size_outlier,119,143,4.95
+dataset/HairlineFracture/Train/bones_what_to_7g.rf.f7f16.jpg,HairlineFracture,Train,size_outlier,80,128,2.37
+dataset/HairlineFracture/Train/bones_what_to_k_7329_g.rf.f0056d7f16.jpg,HairlineFracture,Train,size_outlier,119,143,4.41
+dataset/HairlineFracture/Train/bones_what_to_k_732x549_thumb-1-732x549_jpg.rf.9df85dff51f0a0deb0093f75b56d7f16.jpg,HairlineFracture,Train,size_outlier,155,131,6.12
+dataset/HairlineFracture/Train/bones_what_to_know_732x549_thumb-1-732x549_jpg.rf.9df85dff51f0a0deb0093f75b56d7f16.jpg,HairlineFracture,Train,size_outlier,125,77,21.94
+dataset/ObliqueFracture/Train/image-1_png.rf.1c5d3fb41a5b7377863e99252bfaf4d2.jpg,ObliqueFracture,Train,size_outlier,101,95,21.02

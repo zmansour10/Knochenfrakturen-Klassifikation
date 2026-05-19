@@ -1,0 +1,49 @@
+{
+  "model_name": "CNN_06_Deeper_GAP_StrongerDropout_Gray",
+  "architecture_notes": "Based on CNN_03_Deeper_GAP, but trained on grayscale-standardized images and uses stronger dropout in the classifier head: Dropout(0.6) after Dense(512) and Dropout(0.3) after Dense(128). This tests whether removing artificial color variation and adding stronger regularization improves generalization.",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42,
+    "label_smoothing": 0.0,
+    "use_cosine_decay": false,
+    "cosine_alpha": 0.1
+  },
+  "steps_per_epoch": 26,
+  "architecture_info": {
+    "Conv2D": 7,
+    "Dense": 3,
+    "MaxPooling2D": 4,
+    "Dropout": 2,
+    "BatchNormalization": 0,
+    "Flatten": 0,
+    "GlobalAveragePooling2D": 1,
+    "GlobalMaxPooling2D": 0,
+    "LeakyReLU": 0,
+    "ReLU": 7,
+    "RandomRotation": 0,
+    "RandomZoom": 0,
+    "RandomContrast": 0,
+    "RandomTranslation": 0,
+    "hidden_fc_layers": 2,
+    "total_params": 780714
+  }
+}

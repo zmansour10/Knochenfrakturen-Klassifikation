@@ -1,0 +1,49 @@
+{
+  "model_name": "CNN_01_Flatten_Baseline",
+  "architecture_notes": "Initial baseline architecture using Flatten before the dense classifier.",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 25,
+    "learning_rate": 0.0001,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42,
+    "label_smoothing": 0.0,
+    "use_cosine_decay": false,
+    "cosine_alpha": 0.1
+  },
+  "steps_per_epoch": 27,
+  "architecture_info": {
+    "Conv2D": 5,
+    "Dense": 3,
+    "MaxPooling2D": 3,
+    "Dropout": 1,
+    "BatchNormalization": 0,
+    "Flatten": 1,
+    "GlobalAveragePooling2D": 0,
+    "GlobalMaxPooling2D": 0,
+    "LeakyReLU": 0,
+    "ReLU": 5,
+    "RandomRotation": 0,
+    "RandomZoom": 0,
+    "RandomContrast": 0,
+    "RandomTranslation": 0,
+    "hidden_fc_layers": 2,
+    "total_params": 25863978
+  }
+}

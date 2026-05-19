@@ -1,0 +1,38 @@
+{
+  "model_name": "CNN_02_Base_GAP",
+  "architecture_notes": "Stable baseline architecture. Uses GlobalAveragePooling2D instead of Flatten to reduce parameter count and avoid unstable training.",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42
+  },
+  "architecture_info": {
+    "Conv2D": 5,
+    "Dense": 3,
+    "MaxPooling2D": 3,
+    "Dropout": 1,
+    "BatchNormalization": 0,
+    "Flatten": 0,
+    "GlobalAveragePooling2D": 1,
+    "hidden_fc_layers": 2,
+    "total_params": 206634
+  }
+}

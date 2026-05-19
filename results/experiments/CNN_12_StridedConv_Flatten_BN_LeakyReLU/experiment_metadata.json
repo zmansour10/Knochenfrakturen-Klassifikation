@@ -1,0 +1,49 @@
+{
+  "model_name": "CNN_12_StridedConv_Flatten_BN_LeakyReLU",
+  "architecture_notes": "Additional experiment that uses strided Conv2D for downsampling, BatchNormalization, LeakyReLU, Dropout, and Flatten.",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 30,
+    "learning_rate": 0.0005,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42,
+    "label_smoothing": 0.0,
+    "use_cosine_decay": false,
+    "cosine_alpha": 0.1
+  },
+  "steps_per_epoch": 27,
+  "architecture_info": {
+    "Conv2D": 5,
+    "Dense": 3,
+    "MaxPooling2D": 0,
+    "Dropout": 7,
+    "BatchNormalization": 7,
+    "Flatten": 0,
+    "GlobalAveragePooling2D": 1,
+    "GlobalMaxPooling2D": 0,
+    "LeakyReLU": 7,
+    "ReLU": 0,
+    "RandomRotation": 1,
+    "RandomZoom": 0,
+    "RandomContrast": 0,
+    "RandomTranslation": 0,
+    "hidden_fc_layers": 2,
+    "total_params": 1082954
+  }
+}

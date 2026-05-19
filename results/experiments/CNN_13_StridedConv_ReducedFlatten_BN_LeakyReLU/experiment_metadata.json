@@ -1,0 +1,49 @@
+{
+  "model_name": "CNN_13_StridedConv_ReducedFlatten_BN_LeakyReLU",
+  "architecture_notes": "Improved version of CNN_12. Keeps strided Conv2D, BatchNorm, LeakyReLU, Dropout, and Flatten, but adds MaxPooling2D before Flatten to reduce the flattened feature vector from 50,176 to 12,544 features. The classifier head is reduced to Dense(128) and Dense(64) with Dropout(0.4). This tests whether CNN_12's performance can be preserved while reducing overfitting.",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 40,
+    "learning_rate": 0.0001,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42,
+    "label_smoothing": 0.0,
+    "use_cosine_decay": false,
+    "cosine_alpha": 0.1
+  },
+  "steps_per_epoch": 27,
+  "architecture_info": {
+    "Conv2D": 5,
+    "Dense": 3,
+    "MaxPooling2D": 1,
+    "Dropout": 7,
+    "BatchNormalization": 7,
+    "Flatten": 1,
+    "GlobalAveragePooling2D": 0,
+    "GlobalMaxPooling2D": 0,
+    "LeakyReLU": 7,
+    "ReLU": 0,
+    "RandomRotation": 0,
+    "RandomZoom": 0,
+    "RandomContrast": 0,
+    "RandomTranslation": 0,
+    "hidden_fc_layers": 2,
+    "total_params": 2596874
+  }
+}

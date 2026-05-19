@@ -1,0 +1,2 @@
+model_name,training_time_seconds,epochs_ran,Conv2D,Dense,MaxPooling2D,Dropout,BatchNormalization,Flatten,GlobalAveragePooling2D,GlobalMaxPooling2D,LeakyReLU,ReLU,RandomRotation,RandomZoom,RandomContrast,RandomTranslation,hidden_fc_layers,total_params,test_loss,test_accuracy_keras,test_accuracy_sklearn,macro_f1,weighted_f1
+CNN_12_StridedConv_Flatten_BN_LeakyReLU,20.210147857666016,13,5,3,0,7,7,0,1,0,7,0,1,0,0,0,2,1082954,2.3967933654785156,0.12857143580913544,0.12857142857142856,0.0977870083133241,0.10389132588380709

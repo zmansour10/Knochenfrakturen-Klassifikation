@@ -1,0 +1,38 @@
+{
+  "model_name": "CNN_07_Wider_GAP_StrongerDropout_Gray",
+  "architecture_notes": "Based on CNN_06_Deeper_GAP_StrongerDropout_Gray, but increases the convolutional filter widths from 32/64/128/256 to 64/128/256/512. The model keeps grayscale-standardized images and stronger dropout: Dropout(0.6) after Dense(512) and Dropout(0.3) after Dense(128).",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42
+  },
+  "architecture_info": {
+    "Conv2D": 7,
+    "Dense": 3,
+    "MaxPooling2D": 4,
+    "Dropout": 2,
+    "BatchNormalization": 0,
+    "Flatten": 0,
+    "GlobalAveragePooling2D": 1,
+    "hidden_fc_layers": 2,
+    "total_params": 2655178
+  }
+}

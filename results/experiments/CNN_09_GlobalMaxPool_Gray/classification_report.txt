@@ -1,0 +1,16 @@
+                      precision    recall  f1-score   support
+
+    AvulsionFracture       0.00      0.00      0.00        14
+  ComminutedFracture       0.12      0.21      0.15        14
+ FractureDislocation       0.14      0.47      0.21        19
+  GreenstickFracture       0.00      0.00      0.00        16
+    HairlineFracture       0.07      0.10      0.08        10
+    ImpactedFracture       0.00      0.00      0.00         9
+LongitudinalFracture       0.00      0.00      0.00        12
+     ObliqueFracture       0.00      0.00      0.00        16
+PathologicalFracture       0.28      0.28      0.28        18
+      SpiralFracture       0.36      0.42      0.38        12
+
+            accuracy                           0.16       140
+           macro avg       0.10      0.15      0.11       140
+        weighted avg       0.10      0.16      0.12       140

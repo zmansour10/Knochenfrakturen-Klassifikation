@@ -1,0 +1,19 @@
+{
+  "model_name": "CNN_07_Wider_GAP_StrongerDropout_Gray",
+  "training_time_seconds": 208.8656189441681,
+  "epochs_ran": 42,
+  "Conv2D": 7,
+  "Dense": 3,
+  "MaxPooling2D": 4,
+  "Dropout": 2,
+  "BatchNormalization": 0,
+  "Flatten": 0,
+  "GlobalAveragePooling2D": 1,
+  "hidden_fc_layers": 2,
+  "total_params": 2655178,
+  "test_loss": 2.282960891723633,
+  "test_accuracy_keras": 0.20000000298023224,
+  "test_accuracy_sklearn": 0.2,
+  "macro_f1": 0.11817713817713818,
+  "weighted_f1": 0.12937521937521937
+}

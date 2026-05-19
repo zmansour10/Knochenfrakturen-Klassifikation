@@ -1,0 +1,2 @@
+model_name,training_time_seconds,epochs_ran,Conv2D,Dense,MaxPooling2D,Dropout,BatchNormalization,Flatten,GlobalAveragePooling2D,GlobalMaxPooling2D,LeakyReLU,ReLU,RandomRotation,RandomZoom,RandomContrast,RandomTranslation,hidden_fc_layers,total_params,test_loss,test_accuracy_keras,test_accuracy_sklearn,macro_f1,weighted_f1
+CNN_11_Combined_AugBN_Gray,105.81630897521973,19,7,3,4,2,7,0,1,0,0,7,1,1,1,1,2,783530,2.3253626823425293,0.1428571492433548,0.14285714285714285,0.07817561807331629,0.08752283522104494

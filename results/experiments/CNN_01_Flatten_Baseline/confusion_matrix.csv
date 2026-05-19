@@ -1,0 +1,11 @@
+,AvulsionFracture,ComminutedFracture,FractureDislocation,GreenstickFracture,HairlineFracture,ImpactedFracture,LongitudinalFracture,ObliqueFracture,PathologicalFracture,SpiralFracture
+AvulsionFracture,2,6,4,0,0,0,0,0,1,1
+ComminutedFracture,2,7,4,0,0,0,0,0,1,0
+FractureDislocation,1,3,13,0,0,0,0,0,1,1
+GreenstickFracture,2,6,5,0,0,0,0,0,2,1
+HairlineFracture,2,3,4,0,0,0,0,0,1,0
+ImpactedFracture,2,1,5,0,0,0,1,0,0,0
+LongitudinalFracture,1,6,4,0,0,0,0,0,0,1
+ObliqueFracture,1,5,7,0,1,0,0,0,1,1
+PathologicalFracture,0,3,7,0,0,0,0,0,5,3
+SpiralFracture,0,3,5,0,0,0,1,0,0,3

@@ -1,0 +1,19 @@
+{
+  "model_name": "CNN_02_Base_GAP",
+  "training_time_seconds": 48.80735898017883,
+  "epochs_ran": 35,
+  "Conv2D": 5,
+  "Dense": 3,
+  "MaxPooling2D": 3,
+  "Dropout": 1,
+  "BatchNormalization": 0,
+  "Flatten": 0,
+  "GlobalAveragePooling2D": 1,
+  "hidden_fc_layers": 2,
+  "total_params": 206634,
+  "test_loss": 2.2971103191375732,
+  "test_accuracy_keras": 0.12857143580913544,
+  "test_accuracy_sklearn": 0.12857142857142856,
+  "macro_f1": 0.04881044809228039,
+  "weighted_f1": 0.056314567752566866
+}

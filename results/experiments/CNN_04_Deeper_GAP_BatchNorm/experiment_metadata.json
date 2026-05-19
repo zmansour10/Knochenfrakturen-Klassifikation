@@ -1,0 +1,38 @@
+{
+  "model_name": "CNN_04_Deeper_GAP_BatchNorm",
+  "architecture_notes": "Deeper architecture identical to CNN_03_Deeper_GAP but adds Batch Normalization after convolutional layers",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42
+  },
+  "architecture_info": {
+    "Conv2D": 7,
+    "Dense": 3,
+    "MaxPooling2D": 4,
+    "Dropout": 1,
+    "BatchNormalization": 7,
+    "Flatten": 0,
+    "GlobalAveragePooling2D": 1,
+    "hidden_fc_layers": 2,
+    "total_params": 783530
+  }
+}

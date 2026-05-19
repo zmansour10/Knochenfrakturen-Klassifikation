@@ -1,0 +1,49 @@
+{
+  "model_name": "CNN_11_Combined_AugBN_Gray",
+  "architecture_notes": "Additional experiment based on the best grayscale models. Architectural changes: moderate augmentation layers and BatchNorm after each convolution layer.",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 16,
+    "epochs": 60,
+    "learning_rate": 0.0003,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42,
+    "label_smoothing": 0.1,
+    "use_cosine_decay": true,
+    "cosine_alpha": 0.1
+  },
+  "steps_per_epoch": 53,
+  "architecture_info": {
+    "Conv2D": 7,
+    "Dense": 3,
+    "MaxPooling2D": 4,
+    "Dropout": 2,
+    "BatchNormalization": 7,
+    "Flatten": 0,
+    "GlobalAveragePooling2D": 1,
+    "GlobalMaxPooling2D": 0,
+    "LeakyReLU": 0,
+    "ReLU": 7,
+    "RandomRotation": 1,
+    "RandomZoom": 1,
+    "RandomContrast": 1,
+    "RandomTranslation": 1,
+    "hidden_fc_layers": 2,
+    "total_params": 783530
+  }
+}

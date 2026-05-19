@@ -1,0 +1,38 @@
+{
+  "model_name": "CNN_10_Combined_Strategy",
+  "architecture_notes": "Combined strategy: strong augmentation (flip, rotation 0.15, zoom 0.15, contrast 0.15, brightness 0.1) + BatchNorm after every Conv2D + He normal initialization + graduated dropout (0.5 + 0.3) + grayscale dataset. Uses proven training settings (Adam 1e-4, ReduceLROnPlateau, longer patience=15). Designed to maximize accuracy on this extremely small (838 training images) fine-grained fracture classification task.",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "config": {
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 80,
+    "learning_rate": 0.0001,
+    "loss": "sparse_categorical_crossentropy",
+    "seed": 42
+  },
+  "architecture_info": {
+    "Conv2D": 7,
+    "Dense": 3,
+    "MaxPooling2D": 4,
+    "Dropout": 2,
+    "BatchNormalization": 7,
+    "Flatten": 0,
+    "GlobalAveragePooling2D": 1,
+    "hidden_fc_layers": 2,
+    "total_params": 783530
+  }
+}
