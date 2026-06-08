@@ -205,3 +205,206 @@ def _transfer_config_to_experiment_config(cfg: TransferConfig) -> ExperimentConf
         min_learning_rate=cfg.min_learning_rate,
     )
 
+
+# Hauptexperiment
+def run_transfer_experiment(
+    model_name: str,
+    cfg: TransferConfig,
+) -> dict:
+    set_seeds(cfg.seed)
+
+    results_root = Path(cfg.project_root) / cfg.results_dir / model_name
+    results_root.mkdir(parents=True, exist_ok=True)
+
+    print("=" * 70)
+    print(f"Transfer-Learning-Experiment: {model_name}")
+    print(f"  Backbone  : {cfg.backbone.upper()}")
+    print(f"  Datensatz : {cfg.dataset_dir}")
+    print("=" * 70)
+
+    # --- Daten ---
+    exp_cfg = _transfer_config_to_experiment_config(cfg)
+    train_ds, val_ds, test_ds, class_names = get_datasets(exp_cfg)
+    print("shape of train_ds", train_ds.element_spec)
+    num_classes = len(class_names)
+
+    with open(results_root / "class_names.txt", "w", encoding="utf-8") as f:
+        for name in class_names:
+            f.write(f"{name}\n")
+
+    print(f"\nKlassen ({num_classes}): {class_names}")
+
+    # --- Modell ---
+    print("\nBaue Modell ...")
+    model = build_transfer_model(cfg.input_shape, num_classes, cfg)
+    model._name = model_name
+
+    total_params = int(model.count_params())
+    backbone_params = sum(
+        l.count_params()
+        for l in model.layers
+        if isinstance(l, keras.Model)
+    )
+    print(f"  Gesamt-Parameter : {total_params:,}")
+    print(f"  Backbone-Parameter: {backbone_params:,}")
+    print(f"  Kopf-Parameter    : {total_params - backbone_params:,}")
+
+    save_model_summary(model, results_root / "architecture_summary.txt")
+
+    # Metadaten speichern
+    metadata = {
+        "model_name": model_name,
+        "backbone": cfg.backbone,
+        "class_names": class_names,
+        "total_params": total_params,
+        "backbone_params": backbone_params,
+        "config": {
+            "phase1_epochs": cfg.phase1_epochs,
+            "phase1_lr": cfg.phase1_lr,
+            "phase2_epochs": cfg.phase2_epochs,
+            "phase2_lr": cfg.phase2_lr,
+            "unfreeze_layers": cfg.unfreeze_layers,
+            "dense_units": cfg.dense_units,
+            "dropout_rate": cfg.dropout_rate,
+            "dataset_dir": cfg.dataset_dir,
+            "batch_size": cfg.batch_size,
+            "seed": cfg.seed,
+        },
+    }
+    save_json(metadata, results_root / "experiment_metadata.json")
+
+    # Phase 1 – Feature Extraction
+    print("\n--- Phase 1: Feature Extraction (Backbone eingefroren) ---")
+
+    model.compile(
+        optimizer=keras.optimizers.Adam(learning_rate=cfg.phase1_lr),
+        loss="sparse_categorical_crossentropy",
+        metrics=["accuracy"],
+    )
+
+    callbacks_p1 = _build_transfer_callbacks(
+        results_root / "phase1_best.keras",
+        cfg,
+        monitor="val_loss",
+    )
+
+    start_p1 = time.time()
+    history_p1 = model.fit(
+        train_ds,
+        validation_data=val_ds,
+        epochs=cfg.phase1_epochs,
+        callbacks=callbacks_p1,
+        verbose=1,
+    )
+    time_p1 = time.time() - start_p1
+
+    # Bestes Modell aus Phase 1 laden
+    if (results_root / "phase1_best.keras").exists():
+        model = keras.models.load_model(results_root / "phase1_best.keras")
+
+    _save_history(history_p1, results_root / "history_phase1.csv")
+    print(f"  Phase 1 abgeschlossen ({time_p1:.0f}s, {len(history_p1.history['loss'])} Epochen)")
+
+    # Phase 2 – Fine-Tuning
+    print(f"\n--- Phase 2: Fine-Tuning (letzte {cfg.unfreeze_layers} Backbone-Layer) ---")
+
+    model = unfreeze_backbone(model, cfg)
+
+    model.compile(
+        optimizer=keras.optimizers.Adam(learning_rate=cfg.phase2_lr),
+        loss="sparse_categorical_crossentropy",
+        metrics=["accuracy"],
+    )
+
+    callbacks_p2 = _build_transfer_callbacks(
+        results_root / "phase2_best.keras",
+        cfg,
+        monitor="val_loss",
+    )
+
+    start_p2 = time.time()
+    history_p2 = model.fit(
+        train_ds,
+        validation_data=val_ds,
+        epochs=cfg.phase2_epochs,
+        callbacks=callbacks_p2,
+        verbose=1,
+    )
+    time_p2 = time.time() - start_p2
+
+    # Bestes Modell aus Phase 2 laden
+    if (results_root / "phase2_best.keras").exists():
+        model = keras.models.load_model(results_root / "phase2_best.keras")
+
+    _save_history(history_p2, results_root / "history_phase2.csv")
+    print(f"  Phase 2 abgeschlossen ({time_p2:.0f}s, {len(history_p2.history['loss'])} Epochen)")
+
+    _merge_histories(history_p1, history_p2, results_root / "history_combined.csv")
+
+    model.save(results_root / "final_model.keras")
+
+    # Evaluation auf Test-Set
+    print("\nEvaluation auf Test-Set ...")
+    metrics = evaluate_model(model, test_ds, class_names, results_root)
+
+    total_time = time_p1 + time_p2
+    epochs_ran = len(history_p1.history["loss"]) + len(history_p2.history["loss"])
+
+    summary = {
+        "model_name": model_name,
+        "backbone": cfg.backbone,
+        "total_params": total_params,
+        "backbone_params": backbone_params,
+        "training_time_seconds": float(total_time),
+        "phase1_epochs_ran": len(history_p1.history["loss"]),
+        "phase2_epochs_ran": len(history_p2.history["loss"]),
+        "epochs_ran": epochs_ran,
+        **metrics,
+    }
+
+    pd.DataFrame([summary]).to_csv(results_root / "experiment_summary.csv", index=False)
+    save_json(summary, results_root / "experiment_summary.json")
+
+    return summary
+
+
+def _build_transfer_callbacks(
+    checkpoint_path: Path,
+    cfg: TransferConfig,
+    monitor: str = "val_loss",
+) -> list:
+    return [
+        keras.callbacks.EarlyStopping(
+            monitor=monitor,
+            patience=cfg.early_stopping_patience,
+            restore_best_weights=True,
+            verbose=1,
+        ),
+        keras.callbacks.ModelCheckpoint(
+            filepath=str(checkpoint_path),
+            monitor=monitor,
+            save_best_only=True,
+            verbose=0,
+        ),
+        keras.callbacks.ReduceLROnPlateau(
+            monitor=monitor,
+            factor=cfg.reduce_lr_factor,
+            patience=cfg.reduce_lr_patience,
+            min_lr=cfg.min_learning_rate,
+            verbose=1,
+        ),
+    ]
+
+
+def _save_history(history, path: Path) -> None:
+    pd.DataFrame(history.history).to_csv(path, index=False)
+
+
+def _merge_histories(h1, h2, path: Path) -> None:
+    df1 = pd.DataFrame(h1.history)
+    df2 = pd.DataFrame(h2.history)
+    df1["phase"] = 1
+    df2["phase"] = 2
+    combined = pd.concat([df1, df2], ignore_index=True)
+    combined["epoch"] = range(1, len(combined) + 1)
+    combined.to_csv(path, index=False)
