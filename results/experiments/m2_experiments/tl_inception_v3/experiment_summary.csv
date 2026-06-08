@@ -1,0 +1,2 @@
+model_name,backbone,total_params,backbone_params,training_time_seconds,phase1_epochs_ran,phase2_epochs_ran,epochs_ran,test_loss,test_accuracy_keras,test_accuracy_sklearn,macro_f1,weighted_f1
+tl_inception_v3,inception_v3,22857002,21802784,646.6401748657227,35,18,53,1.8723150491714478,0.4214285612106323,0.42142857142857143,0.3798239594120601,0.39199433453111127

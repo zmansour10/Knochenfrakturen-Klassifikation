@@ -1,0 +1,30 @@
+{
+  "model_name": "tl_inception_v3",
+  "backbone": "inception_v3",
+  "class_names": [
+    "AvulsionFracture",
+    "ComminutedFracture",
+    "FractureDislocation",
+    "GreenstickFracture",
+    "HairlineFracture",
+    "ImpactedFracture",
+    "LongitudinalFracture",
+    "ObliqueFracture",
+    "PathologicalFracture",
+    "SpiralFracture"
+  ],
+  "total_params": 22857002,
+  "backbone_params": 21802784,
+  "config": {
+    "phase1_epochs": 40,
+    "phase1_lr": 0.0003,
+    "phase2_epochs": 40,
+    "phase2_lr": 5e-05,
+    "unfreeze_layers": 50,
+    "dense_units": 512,
+    "dropout_rate": 0.4,
+    "dataset_dir": "dataset_processed",
+    "batch_size": 32,
+    "seed": 42
+  }
+}

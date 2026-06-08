@@ -1,0 +1,15 @@
+{
+  "model_name": "tl_inception_v3",
+  "backbone": "inception_v3",
+  "total_params": 22857002,
+  "backbone_params": 21802784,
+  "training_time_seconds": 646.6401748657227,
+  "phase1_epochs_ran": 35,
+  "phase2_epochs_ran": 18,
+  "epochs_ran": 53,
+  "test_loss": 1.8723150491714478,
+  "test_accuracy_keras": 0.4214285612106323,
+  "test_accuracy_sklearn": 0.42142857142857143,
+  "macro_f1": 0.3798239594120601,
+  "weighted_f1": 0.39199433453111127
+}

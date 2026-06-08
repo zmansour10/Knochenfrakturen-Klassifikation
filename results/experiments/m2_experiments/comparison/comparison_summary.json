@@ -1,0 +1,32 @@
+{
+  "m1_best_accuracy": 0.2158273381294964,
+  "m2_best_accuracy": 0.42142857142857143,
+  "improvement_absolute": 0.20560123329907504,
+  "improvement_relative_pct": 95.26190476190477,
+  "m2_models": [
+    {
+      "model": "VGG-16 (TL)",
+      "test_accuracy": 0.2857142857142857,
+      "macro_f1": 0.26978329527070943,
+      "total_params": 14848586
+    },
+    {
+      "model": "ResNet-50 (TL)",
+      "test_accuracy": 0.30714285714285716,
+      "macro_f1": 0.22961199003881932,
+      "total_params": 24114826
+    },
+    {
+      "model": "EfficientNetB0 (TL)",
+      "test_accuracy": 0.3357142857142857,
+      "macro_f1": 0.2953689568477296,
+      "total_params": 4380077
+    },
+    {
+      "model": "Inception v3 (TL)",
+      "test_accuracy": 0.42142857142857143,
+      "macro_f1": 0.3798239594120601,
+      "total_params": 22857002
+    }
+  ]
+}
